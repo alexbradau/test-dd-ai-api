@@ -1,4 +1,4 @@
-//const openai = require('../config/openAiConfig')
+const openai = require('../config/openAiConfig')
 const express = require('express')
 const controller = new express.Router()
 
