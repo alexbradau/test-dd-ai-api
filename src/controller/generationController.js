@@ -23,6 +23,13 @@ controller.post("/generateCode", async (req, res) => {
       ],
     });
     var output = JSON.parse(completion.choices[0].message.content);
+    
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Expose-Headers", "Content-Length, X-Custom-Header");
+    res.setHeader('Content-Type', 'application/json');
+
     res.send(output);
   } catch (e) {
     console.log(e);
