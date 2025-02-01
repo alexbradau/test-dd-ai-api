@@ -2,6 +2,7 @@ const openai = require("../config/openAiConfig");
 const express = require("express");
 const controller = new express.Router();
 
+
 controller.post("/generateCode", async (req, res) => {
   try {
     const completion = await openai.chat.completions.create({
@@ -22,12 +23,6 @@ controller.post("/generateCode", async (req, res) => {
       ],
     });
     var output = JSON.parse(completion.choices[0].message.content);
-    
-    res.setHeader("Access-Control-Allow-Origin", process.env.ALLOWED_ORIGIN);
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Expose-Headers", "Content-Length, X-Custom-Header");
-    res.setHeader('Content-Type', 'application/json');
 
     res.send(output);
   } catch (e) {
