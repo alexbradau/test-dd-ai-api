@@ -7,13 +7,19 @@ dotenv.config();
 
 const app = express();
 
+const allowedOrigins = [process.env.ALLOWED_ORIGIN, "https://testdd.ai"];
 
-const allowedOrigin = process.env.ALLOWED_ORIGIN; // Default to all if not set
 const corsOptions = {
-  origin: allowedOrigin,
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Enable cookies if needed
-  allowedHeaders: "Content-Type, Authorization"
+  credentials: true,
+  allowedHeaders: "Content-Type, Authorization",
 };
 
 app.use(cors(corsOptions));
