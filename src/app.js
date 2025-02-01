@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [process.env.ALLOWED_ORIGIN, "https://testdd.ai"];
+const allowedOrigins = [process.env.ALLOWED_ORIGIN, "https://www.testdd.ai"];
 
 const corsOptions = {
   origin: function (origin, callback) {
