@@ -11,6 +11,7 @@ const allowedOrigins = [process.env.ALLOWED_ORIGIN, "https://testdd.ai"];
 
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log(origin);
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
