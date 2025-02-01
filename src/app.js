@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 
 const allowedOrigin = process.env.ALLOWED_ORIGIN;
-console.log(allowedOrigin);
 const corsOptions = {
   origin: allowedOrigin,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
