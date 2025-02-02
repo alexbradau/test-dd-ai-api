@@ -12,7 +12,7 @@ controller.post("/generateCode", async (req, res) => {
         {
           role: "system",
           content:
-            "You are a coding assistant that generates java classes from their associated test classes. Return the response in a json format with the prose under its own variables and the actual outputted code under its own variable. Do not include line breaker '\n' in output code.",
+            "You are a coding assistant that generates java classes from their associated test classes. Return the response in a json format with the prose under its own variables and the actual outputted code under its own variable. Do not include line breaker '\n' in output code. As part of the prose, give some instructions on the implementation, components, and some assumptions that were made. Format and organize the prose field into relevant sections.",
         },
         {
           role: "user",
